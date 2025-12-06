@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Quiz</title>
+    <style>
+        button{
+            background-color: rgb(65, 65, 157);
+            padding: 10px 25px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        #resultBox {
+            margin-top: 30px;
+            padding: 15px;
+            border: 2px solid black;
+            width: 350px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Q1. What does HTML stand for?</h2>
+<input type="radio" value="wrong" name="q1"> Hyperlinks and Text Markup Language
+<input type="radio" value="correct" name="q1"> Hyper Text Markup Language
+<input type="radio" value="wrong" name="q1"> Home Tool Markup Language
+<input type="radio" value="wrong" name="q1"> Hyper Tag Making Language
+<br><br>
+
+<h2>Q2. CSS is used for what?</h2>
+<input type="radio" value="wrong" name="q2"> Creating Database
+<input type="radio" value="correct" name="q2"> Designing Web Page Layout
+<input type="radio" value="wrong" name="q2"> Compiling Code
+<input type="radio" value="wrong" name="q2"> Storing Cookies
+<br><br>
+
+<h2>Q3. Which property in CSS is used to change the text color?</h2>
+<input type="radio" value="wrong" name="q3"> text-color
+<input type="radio" value="correct" name="q3"> color
+<input type="radio" value="wrong" name="q3"> font-color
+<input type="radio" value="wrong" name="q3"> background-color
+<br><br>
+
+<h2>Q4. JavaScript is a ______ language.</h2>
+<input type="radio" value="wrong" name="q4"> Server-side
+<input type="radio" value="wrong" name="q4"> Styling
+<input type="radio" value="wrong" name="q4"> Markup
+<input type="radio" value="correct" name="q4"> Client-side scripting
+<br><br>
+
+<h2>Q5. Which CSS property controls the size of text?</h2>
+<input type="radio" value="wrong" name="q5"> font-style
+<input type="radio" value="wrong" name="q5"> text-size
+<input type="radio" value="correct" name="q5"> font-size
+<input type="radio" value="wrong" name="q5"> size
+<br><br>
+
+<h2>Q6. Which of the following is NOT a JavaScript data type?</h2>
+<input type="radio" value="wrong" name="q6"> Number
+<input type="radio" value="wrong" name="q6"> Boolean
+<input type="radio" value="wrong" name="q6"> Undefined
+<input type="radio" value="correct" name="q6"> Module
+<br><br>
+
+<h2>Q7. What does CSS stand for?</h2>
+<input type="radio" value="wrong" name="q7"> Computer Style Sheets
+<input type="radio" value="correct" name="q7"> Cascading Style Sheets
+<input type="radio" value="wrong" name="q7"> Creative Style System
+<input type="radio" value="wrong" name="q7"> Cascading Server Sheets
+<br><br>
+
+<h2>Q8. Which HTML element is used to display an image?</h2>
+<input type="radio" value="correct" name="q8"> &lt;img&gt;
+<input type="radio" value="wrong" name="q8"> &lt;image&gt;
+<input type="radio" value="wrong" name="q8"> &lt;pic&gt;
+<input type="radio" value="wrong" name="q8"> &lt;src&gt;
+<br><br>
+
+<h2>Q9. Which HTML tag is used to create a hyperlink?</h2>
+<input type="radio" value="wrong" name="q9"> &lt;link&gt;
+<input type="radio" value="wrong" name="q9"> &lt;href&gt;
+<input type="radio" value="correct" name="q9"> &lt;a&gt;
+<input type="radio" value="wrong" name="q9"> &lt;p&gt;
+<br><br>
+
+<h2>Q10. Which HTML tag is used to link a JavaScript file?</h2>
+<input type="radio" value="wrong" name="q10"> &lt;js&gt;
+<input type="radio" value="wrong" name="q10"> &lt;javascript&gt;
+<input type="radio" value="correct" name="q10"> &lt;script&gt;
+<input type="radio" value="wrong" name="q10"> &lt;link&gt;
+<br><br>
+
+<button onclick="checkScore()">Submit Answer</button>
+
+<div id="resultBox">
+    <h2>Result</h2>
+    <p id="correct"></p>
+    <p id="wrong"></p>
+    <h3 id="score"></h3>
+</div>
+
+<script>
+function checkScore() {
+    let correct = 0;
+    let wrong = 0;
+
+    for (let i = 1; i <= 10; i++) {
+        let answer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!answer) {
+            alert(`Please answer Question ${i}`);
+            return;
+        }
+        if (answer.value === "correct") {
+            correct++;
+        } else {
+            wrong++;
+        }
+    }
+
+    document.getElementById("resultBox").style.display = "block";
+    document.getElementById("correct").innerText = "Correct Answers: " + correct;
+    document.getElementById("wrong").innerText = "Wrong Answers: " + wrong;
+    document.getElementById("score").innerText = "Final Score: " + correct + "/10";
+}
+</script>
+
+</body>
+</html>
